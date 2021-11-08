@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h3>Login</h3>
+
+<div class="alert-warning">@ViewBag.Error</div>
+
+@if (ViewBag.ReturnUrl != null)
+{
+    Html.BeginForm("Index", "Login", new { ReturnUrl = ViewBag.ReturnUrl });
+}
+else
+{
+    Html.BeginForm("Index", "Login");
+}
+    <div class="form-group">
+        @Html.Label("Username")
+        @Html.TextBox("Username", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Password")
+        @Html.Password("Password", null, new { @class = "form-control" })
+    </div>
+
+    <div class="checkbox">
+        <label>@Html.CheckBox("RememberMe") Remember Me</label>
+    </div>
+    <input type="submit" name="login" value="Login" class="btn btn-success"/>
+
+@{Html.EndForm();}
